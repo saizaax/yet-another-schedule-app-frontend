@@ -1,0 +1,52 @@
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', system-ui, Avenir,
+    Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #43495D;
+  background-color: #f6f8fa;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+html, body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  width: 100%;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+button, input, textarea {
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', system-ui, Avenir,
+    Helvetica, Arial, sans-serif;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
