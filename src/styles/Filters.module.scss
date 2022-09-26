@@ -1,0 +1,78 @@
+.filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+  padding: 0px 28px;
+
+  .container {
+    display: flex;
+    column-gap: 25px;
+    align-items: center;
+    
+    .item {
+      display: flex;
+      column-gap: 10px;
+      align-items: center;
+
+      p {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        color: #43485B;
+      }
+    }
+  }
+
+  .arrows {
+    display: flex;
+    column-gap: 5px;
+
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background: #FFFFFF;
+      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.025);
+      border: none;
+      border-radius: 40px;
+      color: rgba(67, 72, 91, 0.75);
+      cursor: pointer;
+      
+      svg {
+        position: relative;
+      }
+    }
+
+    .left {
+      svg {
+        right: 1px;
+        transition: 0.1s;
+      }
+
+      &:hover {
+        svg {
+          transition: 0.1s;
+          color: #0085FF;
+        }
+      }
+    }
+
+    .right {
+      svg {
+        left: 1px;
+        transition: 0.1s;
+      }
+
+      &:hover {
+        svg {
+          transition: 0.1s;
+          color: #0085FF;
+        }
+      }
+    }
+  }
+}

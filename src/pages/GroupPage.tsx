@@ -1,5 +1,5 @@
 import React from "react"
-import styles from "@styles/GroupPage.module.scss"
+import styles from "@styles/pages/GroupPage.module.scss"
 
 import { ReactComponent as GitHubIcon } from "@icons/github.svg"
 
@@ -8,7 +8,7 @@ const GroupPage: React.FC = () => {
     <div className={styles.container}>
       <div className={styles.inner}>
         <div className={styles.title}>
-          <h1>Онлайн расписание</h1>
+          <h1>Yet Another Schedule App</h1>
           <p>Просмотр расписания РТУ МИРЭА</p>
         </div>
         <div className={styles.group}>

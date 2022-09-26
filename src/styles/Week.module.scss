@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+  margin-top: 32px;
+  padding: 0px 28px;
+
+  p {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: rgba(67, 72, 92, 0.7);
+  }
+
+  span {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: rgba(113, 122, 152, 0.25);
+  }
+
+  button {
+    border-radius: 32px;
+    height: 32px;
+    width: 32px;
+    background: #FFFFFF;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.025);
+    border: none;
+    color: #BFBFBF;
+    font-weight: 500;
+    cursor: pointer;
+
+    svg {
+      position: relative;
+      top: 1px;
+    }
+
+    &:hover {
+      color: #2F82FF;
+    }
+  }
+}

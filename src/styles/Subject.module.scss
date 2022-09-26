@@ -1,0 +1,162 @@
+.subject {
+  display: flex;
+  flex-direction: column;
+  padding-top: 32px;
+  padding-bottom: 25px;
+  gap: 10px;
+  height: 170px;
+  background: #ffffff;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.025);
+  border-radius: 15px;
+  position: relative;
+
+  .tags {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: -11px;
+    padding: 0px 25px;
+
+    .container {
+      display: flex;
+      align-items: center;
+      column-gap: 5px;
+
+      .practice {
+        padding: 5px 8px 6px;
+        background: #2f82ff;
+        border-radius: 7px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+        color: #ffffff;
+      }
+
+      .lecture {
+        padding: 5px 8px 6px;
+        background: #35C772;
+        border-radius: 7px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+        color: #ffffff;
+      }
+
+      .late {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f44336;
+        border-radius: 7px;
+        color: #fff;
+        width: 28px;
+        height: 28px;
+      }
+    }
+
+    .index {
+      padding: 5px 8px 6px;
+      background: #43495d;
+      border-radius: 7px;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      color: #ffffff;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    padding: 0px 25px;
+
+    p {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      color: #f26e36;
+    }
+
+    .name {
+      display: flex;
+      align-items: center;
+      height: 38px;
+
+      p {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        color: #43495d;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+    }
+
+    .icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 28px;
+      height: 28px;
+      background: rgba(242, 110, 54, 0.05);
+      border-radius: 28px;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      column-gap: 15px;
+
+      .time {
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+
+        .icon {
+          background: rgba(242, 110, 54, 0.05);
+        }
+
+        p {
+          color: #f26e36;
+        }
+      }
+
+      .location {
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+
+        .icon {
+          background: rgba(53, 199, 114, 0.05);
+        }
+
+        p {
+          color: #35c772;
+        }
+      }
+    }
+
+    .professor {
+      display: flex;
+      align-items: center;
+      column-gap: 5px;
+
+      .icon {
+        background: rgba(47, 130, 255, 0.05);
+      }
+
+      p {
+        color: #2f82ff;
+      }
+    }
+  }
+}

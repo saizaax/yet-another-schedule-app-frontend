@@ -1,9 +1,11 @@
 import { GroupPage } from "@pages/GroupPage"
+import { SchedulePage } from "@pages/SchedulePage"
 
 function App() {
   return (
     <div className="app">
-      <GroupPage />
+      {/* <GroupPage /> */}
+      <SchedulePage />
     </div>
   )
 }
