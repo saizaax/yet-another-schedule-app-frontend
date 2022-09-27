@@ -1,0 +1,59 @@
+p {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #f26e36;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  background: rgba(242, 110, 54, 0.05);
+  border-radius: 28px;
+}
+
+.time {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+
+  .icon {
+    background: rgba(242, 110, 54, 0.05);
+  }
+
+  p {
+    color: #f26e36;
+  }
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+
+  .icon {
+    background: rgba(53, 199, 114, 0.05);
+  }
+
+  p {
+    color: #35c772;
+  }
+}
+
+.professor {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+
+  .icon {
+    background: rgba(47, 130, 255, 0.05);
+  }
+
+  p {
+    color: #2f82ff;
+  }
+}
