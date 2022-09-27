@@ -1,14 +1,23 @@
 import React from "react"
 import styles from "@styles/Header.module.scss"
+import cn from "classnames"
+
+import { Link, useLocation } from "react-router-dom"
 
 import { ReactComponent as LogoPrimary } from "@assets/logo-primary.svg"
-
 import { ReactComponent as ScheduleIcon } from "@icons/schedule.svg"
 import { ReactComponent as ProfessorIcon } from "@icons/professor.svg"
 import { ReactComponent as MapIcon } from "@icons/map.svg"
 import { ReactComponent as SettingsIcon } from "@icons/settings.svg"
 
 const Header: React.FC = () => {
+  const location = useLocation()
+  const [tab, setTab] = React.useState(location.pathname)
+
+  React.useEffect(() => {
+    setTab(location.pathname)
+  }, [location])
+
   return (
     <header className={styles.header}>
       <div className={styles.content}>
@@ -17,18 +26,24 @@ const Header: React.FC = () => {
         </div>
 
         <nav className={styles.nav}>
-          <a>
+          <Link
+            to="/schedule"
+            className={cn({ [styles.active]: tab === "/schedule" })}
+          >
             <ScheduleIcon />
             Расписание
-          </a>
-          <a>
+          </Link>
+          <Link
+            to="/professors"
+            className={cn({ [styles.active]: tab === "/professors" })}
+          >
             <ProfessorIcon />
             Преподаватели
-          </a>
-          <a>
+          </Link>
+          <Link to="/map" className={cn({ [styles.active]: tab === "/map" })}>
             <MapIcon />
             Карта
-          </a>
+          </Link>
         </nav>
 
         <div className={styles.settings}>

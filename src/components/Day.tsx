@@ -2,7 +2,8 @@ import React from "react"
 import styles from "@styles/Day.module.scss"
 
 import { Subject } from "@components/Subject"
-import { Break } from "./Break"
+import { Break } from "@components/Break"
+import { Free } from "@components/Free"
 
 type Props = {
   day: string
@@ -21,8 +22,9 @@ const Day: React.FC<Props> = ({ day, date, isActive }) => {
         <p>{date}</p>
       </div>
       <div className={styles.subjects}>
-        <Subject />
-        <Break hours={3} />
+        {/* <Subject />
+        <Break hours={3} /> */}
+        <Free />
       </div>
     </div>
   )
