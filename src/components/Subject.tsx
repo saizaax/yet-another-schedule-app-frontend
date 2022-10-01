@@ -2,8 +2,8 @@ import React from "react"
 import styles from "@styles/Subject.module.scss"
 
 
-import { SubjectTag } from "@components/SubjectTag"
-import { SubjectInfo } from "./SubjectInfo"
+import { Tag } from "@components/Tag"
+import { IconInfo } from "@components/IconInfo"
 
 type Props = {}
 
@@ -14,12 +14,12 @@ const Subject: React.FC<Props> = () => {
       <div className={styles.tags}>
         <div className={styles.container}>
           {/* Type */}
-          <SubjectTag type="practice" />
+          <Tag type="practice" />
           {/* isLate */}
-          <SubjectTag type="late" />
+          <Tag type="late" />
         </div>
         {/* Index */}
-        <SubjectTag type="index">2 пара</SubjectTag>
+        <Tag type="index">2 пара</Tag>
       </div>
 
       <div className={styles.content}>
@@ -30,11 +30,11 @@ const Subject: React.FC<Props> = () => {
 
         {/* Time & Location */}
         <div className={styles.container}>
-          <SubjectInfo type="time">09:00 – 10:30</SubjectInfo>
-          <SubjectInfo type="location">A320</SubjectInfo>
+          <IconInfo type="time">09:00 – 10:30</IconInfo>
+          <IconInfo type="location">A320</IconInfo>
         </div>
         {/* Professor */}
-        <SubjectInfo type="professor">Смоленцева А. А.</SubjectInfo>
+        <IconInfo type="professor">Смоленцева А. А.</IconInfo>
       </div>
     </div>
   )

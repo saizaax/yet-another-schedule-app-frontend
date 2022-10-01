@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  background: #F6F8FA;
+  background: #f6f8fa;
   align-items: center;
 
   .inner {
@@ -20,10 +20,40 @@
       flex: 1;
       width: 100%;
 
-      .schedule {
+      .search {
         margin-top: 32px;
         display: flex;
-        column-gap: 16px;
+        align-items: center;
+        position: relative;
+
+        input {
+          padding: 25px 28px;
+          padding-right: 62px;
+          background: #ffffff;
+          box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.025);
+          border-radius: 15px;
+          width: 100%;
+          border: none;
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 22px;
+          color: #5e657d;
+
+          &::placeholder {
+            color: #717a987c;
+          }
+        }
+
+        svg {
+          position: absolute;
+          right: 28px;
+        }
+      }
+
+      .container {
+        margin-top: 32px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
       }
     }
   }

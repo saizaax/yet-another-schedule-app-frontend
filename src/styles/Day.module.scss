@@ -4,9 +4,9 @@
   padding: 28.5px 25px;
   border: 1px solid rgba(113, 123, 151, 0.25);
   border-radius: 15px;
-  max-width: 470px;
   width: 100%;
-  row-gap: 32.5px;
+  row-gap: 25px;
+  background-color: #F6F8FA;
 
   .title {
     display: flex;
@@ -47,7 +47,7 @@
   .subjects {
     display: flex;
     flex-direction: column;
-    row-gap: 15px;
+    row-gap: 20px;
 
     .subject {
       width: 100%;

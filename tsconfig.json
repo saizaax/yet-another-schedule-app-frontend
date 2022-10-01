@@ -23,7 +23,8 @@
       "@assets/*": ["src/assets/*"],
       "@app-types/*": ["src/types/*"],
       "@utils/*": ["src/utils/*"],
-      "@icons/*": ["src/assets/icons/*"]
+      "@icons/*": ["src/assets/icons/*"],
+      "@atoms/*": ["src/atoms/*"],
     }
   },
   "include": ["src"],

@@ -1,5 +1,5 @@
 import React from "react"
-import styles from "@styles/SubjectTag.module.scss"
+import styles from "@styles/Tag.module.scss"
 
 import { ReactComponent as LateIcon } from "@icons/late.svg"
 
@@ -8,7 +8,7 @@ type Props = {
   children?: React.ReactNode
 }
 
-const SubjectTag: React.FC<Props> = ({ children, type }) => {
+const Tag: React.FC<Props> = ({ children, type }) => {
   return (
     <React.Fragment>
       {type === "lecture" && <span className={styles.lecture}>Лекция</span>}
@@ -23,4 +23,4 @@ const SubjectTag: React.FC<Props> = ({ children, type }) => {
   )
 }
 
-export { SubjectTag }
+export { Tag }

@@ -22,9 +22,12 @@ const Day: React.FC<Props> = ({ day, date, isActive }) => {
         <p>{date}</p>
       </div>
       <div className={styles.subjects}>
-        {/* <Subject />
-        <Break hours={3} /> */}
-        <Free />
+        <Subject />
+        <Subject />
+        <Subject />
+        <Subject />
+        {/* <Break hours={3} /> */}
+        {/* <Free /> */}
       </div>
     </div>
   )

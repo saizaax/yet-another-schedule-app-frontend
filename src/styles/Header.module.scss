@@ -51,12 +51,18 @@
       flex: 1;
       justify-content: flex-end;
 
-      a {
+      button {
         color: #5E657D;
         display: flex;
         align-items: center;
         cursor: pointer;
         gap: 10px;
+        border: none;
+        background: transparent;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        color: #5E657D;
 
         &:hover {
           color: #2F82FF;

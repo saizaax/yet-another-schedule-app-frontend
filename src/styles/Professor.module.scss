@@ -1,0 +1,42 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 190px;
+  background: #ffffff;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.025);
+  border-radius: 15px;
+  row-gap: 15px;
+  padding: 28px;
+
+  h3 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #43485b;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+  }
+
+  button {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #2f82ff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    background: transparent;
+    border: none;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

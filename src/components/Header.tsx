@@ -9,10 +9,14 @@ import { ReactComponent as ScheduleIcon } from "@icons/schedule.svg"
 import { ReactComponent as ProfessorIcon } from "@icons/professor.svg"
 import { ReactComponent as MapIcon } from "@icons/map.svg"
 import { ReactComponent as SettingsIcon } from "@icons/settings.svg"
+import { settingsPopup } from "@atoms/popupsAtom"
+import { useAtom } from "jotai"
 
 const Header: React.FC = () => {
   const location = useLocation()
   const [tab, setTab] = React.useState(location.pathname)
+
+  const [, setShowSettings] = useAtom(settingsPopup)
 
   React.useEffect(() => {
     setTab(location.pathname)
@@ -47,10 +51,10 @@ const Header: React.FC = () => {
         </nav>
 
         <div className={styles.settings}>
-          <a>
+          <button onClick={() => setShowSettings(true)}>
             <SettingsIcon />
             Настройки
-          </a>
+          </button>
         </div>
       </div>
     </header>

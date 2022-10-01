@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+
+  h3 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #43485b;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+  }
+
+  .weeks {
+    display: flex;
+    column-gap: 10px;
+
+    button {
+      padding: 8px 12px;
+      background: transparent;
+      border: 1px solid rgba(113, 122, 152, 0.2);
+      border-radius: 8px;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      color: rgba(113, 122, 152, 1);
+      cursor: pointer;
+
+      &:hover {
+        border-color: rgba(0, 133, 255, 0.3);
+        color: #0085FF;
+      }
+    }
+
+    .active {
+      color: #0085FF;
+      border-color: #0085FF;
+
+      &:hover {
+        color: #0085FF;
+      }
+    }
+  }
+
+  .days {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+  }
+}

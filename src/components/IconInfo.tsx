@@ -1,5 +1,5 @@
 import React from "react"
-import styles from "@styles/SubjectInfo.module.scss"
+import styles from "@styles/IconInfo.module.scss"
 
 import { ReactComponent as TimeIcon } from "@icons/time-fill.svg"
 import { ReactComponent as ProfessorIcon } from "@icons/professor-fill.svg"
@@ -10,7 +10,7 @@ type Props = {
   children: React.ReactNode
 }
 
-const SubjectInfo: React.FC<Props> = ({ type, children }) => {
+const IconInfo: React.FC<Props> = ({ type, children }) => {
   return (
     <React.Fragment>
       {type === "time" && (
@@ -41,4 +41,4 @@ const SubjectInfo: React.FC<Props> = ({ type, children }) => {
   )
 }
 
-export { SubjectInfo }
+export { IconInfo }

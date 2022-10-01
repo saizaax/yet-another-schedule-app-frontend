@@ -14,7 +14,7 @@ const GroupPage: React.FC = () => {
         <div className={styles.group}>
           <label>👋🏻 Введите вашу учебную группу</label>
           <div className={styles.input}>
-            <input type="text" placeholder="ИКБО-01-20" />
+            <input type="text" placeholder="ИКБО-01-20" autoFocus={true} />
             <button>Выбрать</button>
           </div>
         </div>
