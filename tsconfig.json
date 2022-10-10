@@ -25,6 +25,8 @@
       "@utils/*": ["src/utils/*"],
       "@icons/*": ["src/assets/icons/*"],
       "@atoms/*": ["src/atoms/*"],
+      "@api/*": ["src/api/*"],
+      "@config": ["src/config.ts"]
     }
   },
   "include": ["src"],

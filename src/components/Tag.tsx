@@ -4,13 +4,14 @@ import styles from "@styles/Tag.module.scss"
 import { ReactComponent as LateIcon } from "@icons/late.svg"
 
 type Props = {
-  type: "lecture" | "practice" | "late" | "index"
+  type: "lecture" | "practice" | "late" | "lab" | "index"
   children?: React.ReactNode
 }
 
 const Tag: React.FC<Props> = ({ children, type }) => {
   return (
     <React.Fragment>
+      {type === "lab" && <span className={styles.lab}>Лабораторная</span>}
       {type === "lecture" && <span className={styles.lecture}>Лекция</span>}
       {type === "practice" && <span className={styles.practice}>Практика</span>}
       {type === "late" && (

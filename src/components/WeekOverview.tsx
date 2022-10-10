@@ -6,10 +6,40 @@ import { ReactComponent as LectureIcon } from "@icons/lecture.svg"
 import { ReactComponent as PracticeIcon } from "@icons/practice.svg"
 import { ReactComponent as TimeIcon } from "@icons/time.svg"
 import { ReactComponent as WeekIcon } from "@icons/week.svg"
+import { ScheduleType } from "@app-types/schedule.types"
+import { useAtom } from "jotai"
+import { currentWeekAtom } from "@atoms/scheduleAtom"
 
-type Props = {}
+type Props = {
+  schedule: ScheduleType
+}
 
-const WeekOverview: React.FC<Props> = () => {
+const WeekOverview: React.FC<Props> = ({ schedule }) => {
+  const [currentWeek] = useAtom(currentWeekAtom)
+
+  const [week, setWeek] = React.useState({
+    classes: 0,
+    lectures: 0,
+    practices: 0,
+    hours: 0,
+    type: "Чётная"
+  })
+
+  React.useEffect(() => {
+    const subjects = Object.values(schedule)
+      .map((day) => day.classes)
+      .flat()
+      .filter((item) => item.weeks.includes(currentWeek))
+
+    const classes = subjects.length
+    const lectures = subjects.filter((item) => item.type === "Лекция").length
+    const practices = subjects.filter((item) => item.type === "Практика").length
+    const hours = subjects.length * 1.5
+    const type = currentWeek % 2 === 0 ? "Чётная" : "Нечётная"
+
+    setWeek({ classes, lectures, practices, hours, type })
+  }, [schedule])
+
   return (
     <div className={styles.container}>
       <p>На этой неделе</p>
@@ -22,7 +52,7 @@ const WeekOverview: React.FC<Props> = () => {
           <div className={styles.text}>
             <p>Занятий</p>
             <hr />
-            <span>12</span>
+            <span>{week.classes}</span>
           </div>
         </div>
         {/* Practices */}
@@ -34,7 +64,7 @@ const WeekOverview: React.FC<Props> = () => {
           <div className={styles.text}>
             <p>Семинаров</p>
             <hr />
-            <span>12</span>
+            <span>{week.practices}</span>
           </div>
         </div>
         {/* Lectures */}
@@ -46,7 +76,7 @@ const WeekOverview: React.FC<Props> = () => {
           <div className={styles.text}>
             <p>Лекций</p>
             <hr />
-            <span>12</span>
+            <span>{week.lectures}</span>
           </div>
         </div>
         {/* Hours */}
@@ -58,7 +88,7 @@ const WeekOverview: React.FC<Props> = () => {
           <div className={styles.text}>
             <p>Часов</p>
             <hr />
-            <span>12</span>
+            <span>{week.hours}</span>
           </div>
         </div>
         {/* Week */}
@@ -70,7 +100,7 @@ const WeekOverview: React.FC<Props> = () => {
           <div className={styles.text}>
             <p>Неделя</p>
             <hr />
-            <span>Чётная</span>
+            <span>{week.type}</span>
           </div>
         </div>
       </div>

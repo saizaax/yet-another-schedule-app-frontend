@@ -1,26 +1,48 @@
 import React from "react"
 import styles from "@styles/pages/SchedulePage.module.scss"
 
+import { useSchedule } from "@api/useSchedule"
+
 import { Header } from "@components/Header"
 import { WeekOverview } from "@components/WeekOverview"
 import { Week } from "@components/Week"
 import { Filters } from "@components/Filters"
 import { Day } from "@components/Day"
+import { useAtom } from "jotai"
+import { currentWeekPartAtom, groupAtom } from "@atoms/scheduleAtom"
+import { DayEnum } from "@app-types/schedule.types"
 
 const SchedulePage: React.FC = () => {
+  const [group] = useAtom(groupAtom)
+  const [weekPart] = useAtom(currentWeekPartAtom)
+
+  const { data, isLoading, isError } = useSchedule(group)
+
   return (
     <div className={styles.container}>
       <Header />
       <div className={styles.inner}>
         <div className={styles.content}>
           <Week />
-          <WeekOverview />
+          {data ? <WeekOverview schedule={data.schedule} /> : null}
           <Filters />
-          <div className={styles.schedule}>
-            <Day day="Понедельник" date="26.09.2022" isActive={true} />
-            <Day day="Вторник" date="27.09.2022" />
-            <Day day="Среда" date="28.09.2022" />
-          </div>
+          {data ? (
+            <div className={styles.schedule}>
+              {!weekPart ? (
+                <React.Fragment>
+                  <Day {...data.schedule.MONDAY} dayValue={DayEnum.MONDAY} />
+                  <Day {...data.schedule.TUESDAY} dayValue={DayEnum.TUESDAY} />
+                  <Day {...data.schedule.WEDNESDAY} dayValue={DayEnum.WEDNESDAY} />
+                </React.Fragment>
+              ) : (
+                <React.Fragment>
+                  <Day {...data.schedule.THURSDAY} dayValue={DayEnum.THURSDAY} />
+                  <Day {...data.schedule.FRIDAY} dayValue={DayEnum.FRIDAY} />
+                  <Day {...data.schedule.SATURDAY} dayValue={DayEnum.SATURDAY} />
+                </React.Fragment>
+              )}
+            </div>
+          ) : null}
         </div>
       </div>
     </div>

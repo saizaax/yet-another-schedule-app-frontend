@@ -3,7 +3,12 @@ import "@styles/global/Switch.scss"
 
 import RCSwitch from "rc-switch"
 
-const Switch: React.FC = (props) => {
+type Props = {
+  checked: boolean
+  onChange?: () => void
+}
+
+const Switch: React.FC<Props> = (props) => {
   return <RCSwitch {...props} />
 }
 
