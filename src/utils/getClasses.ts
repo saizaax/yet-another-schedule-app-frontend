@@ -42,3 +42,18 @@ export const getClasses = (
 
   return res
 }
+
+export const getProfessorClasses = (
+  classes: SubjectType[],
+  weekType: "Чётная" | "Нечётная"
+) => {
+  const filtered = classes
+    .filter((item) =>
+      weekType === "Чётная"
+        ? item.weeks.some((i) => i % 2 === 0)
+        : item.weeks.some((i) => i % 2 !== 0)
+    )
+    .sort((a, b) => a.index - b.index)
+
+  return filtered
+}

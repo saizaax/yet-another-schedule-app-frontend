@@ -4,26 +4,39 @@ import styles from "@styles/Professor.module.scss"
 import { ReactComponent as ArrowIcon } from "@icons/arrow.svg"
 
 import { IconInfo } from "@components/IconInfo"
-import { professorPopup } from "@atoms/popupsAtom"
-import { useAtom } from "jotai"
+import { Link } from "react-router-dom"
 
-type Props = {}
+type Props = {
+  id: string
+  name: string
+  locations: string[]
+  days: string[]
+}
 
-const Professor: React.FC<Props> = () => {
-  const [, setShowProfessorModal] = useAtom(professorPopup)
+const Professor: React.FC<Props> = ({ id, name, locations, days }) => {
+  const locationsList = locations ? locations.slice(0, 3).join(" · ") : ""
+  const daysList = ["ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"]
+    .filter((item) => days.includes(item))
+    .join(" · ")
 
   return (
-    <div className={styles.card}>
-      <h3>Иванов И. И.</h3>
-      <div className={styles.info}>
-        <IconInfo type="location">A310 · A310 · A310 · A310</IconInfo>
-        <IconInfo type="time">ПН · ВТ · СР · ЧТ</IconInfo>
-      </div>
-      <button onClick={() => setShowProfessorModal(true)}>
-        Подробнее
-        <ArrowIcon width={20} height={20} />
-      </button>
-    </div>
+    <React.Fragment>
+      {name ? (
+        <div className={styles.card}>
+          <h3>{name}</h3>
+          <div className={styles.info}>
+            {locationsList ? (
+              <IconInfo type="location">{locationsList}</IconInfo>
+            ) : null}
+            {daysList ? <IconInfo type="time">{daysList}</IconInfo> : null}
+          </div>
+          <Link to={`/professors?id=${id}`}>
+            Подробнее
+            <ArrowIcon width={20} height={20} />
+          </Link>
+        </div>
+      ) : null}
+    </React.Fragment>
   )
 }
 

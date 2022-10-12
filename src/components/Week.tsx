@@ -7,8 +7,10 @@ import { ReactComponent as ArrowIcon } from "@icons/arrow.svg"
 import { currentWeekAtom, groupAtom } from "@atoms/scheduleAtom"
 import { useAtom } from "jotai"
 import { getSemesterInfo } from "@utils/getSemesterInfo"
+import { weeksPopup } from "@atoms/popupsAtom"
 
 const Week: React.FC<Props> = () => {
+  const [, setShow] = useAtom(weeksPopup)
   const [week] = useAtom(currentWeekAtom)
   const [group] = useAtom(groupAtom)
 
@@ -29,7 +31,7 @@ const Week: React.FC<Props> = () => {
       <p>Семестр {semesterInfo.semester}</p>
       <span>•</span>
       <p>Неделя {week}</p>
-      <button>
+      <button onClick={() => setShow(true)}>
         <ArrowIcon width={16} height={16} />
       </button>
     </div>

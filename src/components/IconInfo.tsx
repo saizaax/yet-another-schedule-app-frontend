@@ -4,9 +4,10 @@ import styles from "@styles/IconInfo.module.scss"
 import { ReactComponent as TimeIcon } from "@icons/time-fill.svg"
 import { ReactComponent as ProfessorIcon } from "@icons/professor-fill.svg"
 import { ReactComponent as LocationIcon } from "@icons/location-fill.svg"
+import { ReactComponent as WeekIcon } from "@icons/week-fill.svg"
 
 type Props = {
-  type: "time" | "professor" | "location"
+  type: "time" | "professor" | "location" | "week"
   children: React.ReactNode
 }
 
@@ -33,6 +34,14 @@ const IconInfo: React.FC<Props> = ({ type, children }) => {
         <div className={styles.location}>
           <div className={styles.icon}>
             <LocationIcon />
+          </div>
+          <p>{children}</p>
+        </div>
+      )}
+      {type === "week" && (
+        <div className={styles.professor}>
+          <div className={styles.icon}>
+            <WeekIcon />
           </div>
           <p>{children}</p>
         </div>

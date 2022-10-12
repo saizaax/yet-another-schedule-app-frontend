@@ -58,3 +58,10 @@ export type BreakType = {
   hours: number
   minutes: number
 }
+
+export type ProfessorType = {
+  id: string
+  name: string
+  locations: string[]
+  days: string[]
+}

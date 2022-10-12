@@ -53,6 +53,10 @@ const formatISODay = (day: DayEnum) => {
   return days[day]
 }
 
+export const getWeekPart = () => {
+  return TODAY.isoWeekday() > 3 ? true : false
+}
+
 export const getWeeksNumber = () => {
   return SEMESTER_END.week() - SEMESTER_START.week() + 2
 }

@@ -15,6 +15,7 @@ type Props = {
   location: string
   professor: string
   isLate?: boolean
+  weekType?: "Чётная" | "Нечётная"
 }
 
 const Subject: React.FC<Props> = ({
@@ -25,7 +26,9 @@ const Subject: React.FC<Props> = ({
   timeStart,
   timeEnd,
   location,
-  professor
+  professor,
+  weeks,
+  weekType
 }) => {
   return (
     <div className={styles.subject}>
@@ -59,9 +62,13 @@ const Subject: React.FC<Props> = ({
           </IconInfo>
         </div>
         {/* Professor */}
-        <IconInfo type="professor">
-          {professor ? professor : "Неизвестно"}
-        </IconInfo>
+        {weekType ? null : (
+          <IconInfo type="professor">
+            {professor ? professor : "Неизвестно"}
+          </IconInfo>
+        )}
+        {/* Weeks */}
+        {weekType ? <IconInfo type="week">{weeks.join(" · ")}</IconInfo> : null}
       </div>
     </div>
   )

@@ -52,27 +52,38 @@
         display: flex;
         gap: 10px;
 
-        input {
+        .box {
+          display: flex;
           width: 100%;
-          padding: 16px 18px;
-          background: #fff;
-          color: #2f82ff;
-          border: solid 1px rgb(245, 245, 245);
-          border-radius: 12px;
-          font-size: 16px;
-          font-weight: 500;
-          text-transform: uppercase;
+          flex-direction: column;
 
-          &::placeholder {
-            color: #717a9880;
+          input {
+            width: 100%;
+            padding: 16px 18px;
+            background: #fff;
+            color: #2f82ff;
+            border: solid 1px rgb(245, 245, 245);
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+
+            &::placeholder {
+              color: #717a9880;
+            }
+
+            &:focus {
+              border: solid 1px #2f82ff;
+            }
           }
 
-          &:focus {
-            border: solid 1px #2f82ff;
+          .select {
+            display: flex;
+            position: relative;
           }
         }
 
-        button {
+        .set {
           background: linear-gradient(90deg, #65a2ff 0%, #2f82ff 100%);
           border-radius: 15px;
           padding: 18px;
@@ -83,6 +94,15 @@
 
           &:hover {
             opacity: 0.9;
+          }
+
+          &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+
+            &:hover {
+              opacity: 0.5;
+            }
           }
         }
       }

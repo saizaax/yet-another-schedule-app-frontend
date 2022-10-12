@@ -1,8 +1,8 @@
 import { fetcher } from "@api/API"
 import useSWR from "swr"
 
-export const useSchedule = (group: string) => {
-  const { data, error } = useSWR(`/api/classes?group=${group}`, fetcher)
+export const useGroups = () => {
+  const { data, error } = useSWR(`/api/groups`, fetcher)
 
   return {
     data: data,

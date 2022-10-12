@@ -26,7 +26,9 @@ const Header: React.FC = () => {
     <header className={styles.header}>
       <div className={styles.content}>
         <div className={styles.logo}>
-          <LogoPrimary width={40} height={40} />
+          <Link to="/">
+            <LogoPrimary width={40} height={40} />
+          </Link>
         </div>
 
         <nav className={styles.nav}>

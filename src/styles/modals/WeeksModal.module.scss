@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+
+  h3 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #43485B;
+  }
+
+  .weeks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    button {
+      height: 64px;
+      width: 64px;
+      border: 1px solid #43485b1c;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      color: #43485b;
+      font-weight: 500;
+      font-size: 14px;
+
+      &:hover {
+        border-color: #0084ff3d;
+        color: #0085ff;
+        cursor: pointer;
+      }
+    }
+
+    .active {
+      border-color: #0085ff;
+      color: #0085ff;
+
+      &:hover {
+        border-color: #0085ff;
+      }
+    }
+  }
+}
