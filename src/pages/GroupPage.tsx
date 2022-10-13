@@ -8,13 +8,13 @@ import { Selector } from "@components/Selector"
 import { useAtom } from "jotai"
 import { groupAtom } from "@atoms/scheduleAtom"
 import { useGroups } from "@api/useGroups"
-import { useNavigate } from "react-router-dom"
+import { Navigate, useNavigate } from "react-router-dom"
 
 const GroupPage: React.FC = () => {
   const navigate = useNavigate()
 
   const { data, isLoading, isError } = useGroups()
-  const [, setGroup] = useAtom(groupAtom)
+  const [group, setGroup] = useAtom(groupAtom)
 
   const [variants, setVariants] = React.useState<string[]>([])
   const [focused, setFocused] = React.useState<boolean>(false)
@@ -64,8 +64,10 @@ const GroupPage: React.FC = () => {
 
   const handleGroupSet = () => {
     setGroup(groupValue)
-    navigate("/schedule")
+    localStorage.setItem("schedule-group", groupValue)
   }
+
+  if (group) return <Navigate to="/schedule" />
 
   return (
     <div className={styles.container}>

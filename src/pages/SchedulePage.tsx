@@ -11,12 +11,17 @@ import { Day } from "@components/Day"
 import { useAtom } from "jotai"
 import { currentWeekPartAtom, groupAtom } from "@atoms/scheduleAtom"
 import { DayEnum } from "@app-types/schedule.types"
+import { Navigate, useNavigate } from "react-router-dom"
 
 const SchedulePage: React.FC = () => {
   const [group] = useAtom(groupAtom)
   const [weekPart] = useAtom(currentWeekPartAtom)
 
+  const navigate = useNavigate()
+
   const { data, isLoading, isError } = useSchedule(group)
+
+  if (!group) return <Navigate to="/" />
 
   return (
     <div className={styles.container}>
@@ -32,13 +37,22 @@ const SchedulePage: React.FC = () => {
                 <React.Fragment>
                   <Day {...data.schedule.MONDAY} dayValue={DayEnum.MONDAY} />
                   <Day {...data.schedule.TUESDAY} dayValue={DayEnum.TUESDAY} />
-                  <Day {...data.schedule.WEDNESDAY} dayValue={DayEnum.WEDNESDAY} />
+                  <Day
+                    {...data.schedule.WEDNESDAY}
+                    dayValue={DayEnum.WEDNESDAY}
+                  />
                 </React.Fragment>
               ) : (
                 <React.Fragment>
-                  <Day {...data.schedule.THURSDAY} dayValue={DayEnum.THURSDAY} />
+                  <Day
+                    {...data.schedule.THURSDAY}
+                    dayValue={DayEnum.THURSDAY}
+                  />
                   <Day {...data.schedule.FRIDAY} dayValue={DayEnum.FRIDAY} />
-                  <Day {...data.schedule.SATURDAY} dayValue={DayEnum.SATURDAY} />
+                  <Day
+                    {...data.schedule.SATURDAY}
+                    dayValue={DayEnum.SATURDAY}
+                  />
                 </React.Fragment>
               )}
             </div>

@@ -1,7 +1,6 @@
 import React from "react"
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom"
 
-import { professorPopup, settingsPopup, weeksPopup } from "@atoms/popupsAtom"
 import { useAtom } from "jotai"
 
 import { GroupPage } from "@pages/GroupPage"
@@ -9,21 +8,29 @@ import { ProfessorsPage } from "@pages/ProfessorsPage"
 import { SchedulePage } from "@pages/SchedulePage"
 import { MapPage } from "@pages/MapPage"
 
-import { ProfessorModal } from "@components/modals/ProfessorModal"
-import { SettingsModal } from "@components/modals/SettingsModal"
-import { WeeksModal } from "@components/modals/WeeksModal"
+import { Modals } from "@components/modals/Modals"
+import { groupAtom, scheduleParamsAtom } from "@atoms/scheduleAtom"
 
 function App() {
-  const [showProfessorModal] = useAtom(professorPopup)
-  const [showSettingsModal] = useAtom(settingsPopup)
-  const [showWeeksModal] = useAtom(weeksPopup)
+  const [, setGroup] = useAtom(groupAtom)
+  const [, setParams] = useAtom(scheduleParamsAtom)
+
+  const fetchLocalStorage = () => {
+    const p = localStorage.getItem("schedule-settings")
+    const g = localStorage.getItem("schedule-group")
+
+    if (p) setParams(JSON.parse(p))
+    if (g) setGroup(g)
+  }
+
+  React.useEffect(() => {
+    fetchLocalStorage()
+  }, [])
 
   return (
     <div className="app">
       <BrowserRouter>
-        {showProfessorModal && <ProfessorModal />}
-        {showSettingsModal && <SettingsModal />}
-        {showWeeksModal && <WeeksModal />}
+        <Modals />
         <Routes>
           <Route path="/" element={<GroupPage />} />
           <Route path="schedule" element={<SchedulePage />} />

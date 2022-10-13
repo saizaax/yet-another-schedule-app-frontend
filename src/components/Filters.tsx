@@ -26,6 +26,12 @@ const Filters: React.FC = () => {
     if (type === "FORWARD" && weekPart && week <= maxWeeks) setWeek(week + 1)
   }
 
+  const handleParamsChange = (type: "showLate" | "showLectures") => {
+    const p = { ...params, [type]: !params[type] }
+    setParams(p)
+    localStorage.setItem("schedule-settings", JSON.stringify(p))
+  }
+
   return (
     <div className={styles.filters}>
       <div className={styles.container}>
@@ -33,18 +39,14 @@ const Filters: React.FC = () => {
           <p>Прошедшие пары</p>
           <Switch
             checked={params.showLate}
-            onChange={() =>
-              setParams({ ...params, showLate: !params.showLate })
-            }
+            onChange={() => handleParamsChange("showLate")}
           />
         </div>
         <div className={styles.item}>
           <p>Лекции</p>
           <Switch
             checked={params.showLectures}
-            onChange={() =>
-              setParams({ ...params, showLectures: !params.showLectures })
-            }
+            onChange={() => handleParamsChange("showLectures")}
           />
         </div>
       </div>

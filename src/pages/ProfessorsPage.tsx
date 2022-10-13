@@ -12,6 +12,7 @@ import { ProfessorType } from "@app-types/schedule.types"
 import { useSearchParams } from "react-router-dom"
 import { useAtom } from "jotai"
 import { professorPopup } from "@atoms/popupsAtom"
+import { Empty } from "@components/Empty"
 
 const ProfessorsPage: React.FC = () => {
   const [, setPopup] = useAtom(professorPopup)
@@ -40,7 +41,7 @@ const ProfessorsPage: React.FC = () => {
 
   const professors = data
     ? data
-        .slice(0, 48)
+        .slice(0, 49)
         .map((item: ProfessorType) => <Professor key={item.id} {...item} />)
     : null
 
@@ -58,9 +59,11 @@ const ProfessorsPage: React.FC = () => {
             />
             <SearchIcon width={22} height={22} />
           </div>
-          <div className={styles.container}>
-            {professors && professors.length ? professors : null}
-          </div>
+          {professors && professors.length ? (
+            <div className={styles.container}>{professors}</div>
+          ) : (
+            <Empty />
+          )}
         </div>
       </div>
     </div>
