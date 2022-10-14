@@ -13,15 +13,16 @@ import { useSearchParams } from "react-router-dom"
 import { useAtom } from "jotai"
 import { professorPopup } from "@atoms/popupsAtom"
 import { Empty } from "@components/Empty"
+import { Spinner } from "@components/Spinner"
 
 const ProfessorsPage: React.FC = () => {
   const [, setPopup] = useAtom(professorPopup)
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams] = useSearchParams()
 
   const [searchValue, setSearchValue] = React.useState<string>("")
   const [searchQuery, setSearchQuery] = React.useState<string>("")
 
-  const { data, isLoading, isError } = useProfessors(searchQuery)
+  const { data, isLoading } = useProfessors(searchQuery)
 
   React.useEffect(() => {
     if (searchParams.get("id")) setPopup(true)
@@ -39,9 +40,11 @@ const ProfessorsPage: React.FC = () => {
     []
   )
 
+  if (isLoading) return <Spinner />
+
   const professors = data
     ? data
-        .slice(0, 49)
+        .slice(0, 48)
         .map((item: ProfessorType) => <Professor key={item.id} {...item} />)
     : null
 

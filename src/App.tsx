@@ -10,8 +10,10 @@ import { MapPage } from "@pages/MapPage"
 
 import { Modals } from "@components/modals/Modals"
 import { groupAtom, scheduleParamsAtom } from "@atoms/scheduleAtom"
+import { Spinner } from "@components/Spinner"
 
 function App() {
+  const [isLoaded, setIsLoaded] = React.useState(false)
   const [, setGroup] = useAtom(groupAtom)
   const [, setParams] = useAtom(scheduleParamsAtom)
 
@@ -25,7 +27,10 @@ function App() {
 
   React.useEffect(() => {
     fetchLocalStorage()
+    setIsLoaded(true)
   }, [])
+
+  if (!isLoaded) return <Spinner />
 
   return (
     <div className="app">
