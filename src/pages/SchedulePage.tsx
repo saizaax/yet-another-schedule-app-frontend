@@ -18,11 +18,7 @@ const SchedulePage: React.FC = () => {
   const [group] = useAtom(groupAtom)
   const [weekPart] = useAtom(currentWeekPartAtom)
 
-  const navigate = useNavigate()
-
-  const { data, isLoading, isError } = useSchedule(group)
-
-  if (isLoading) return <Spinner />
+  const { data, isLoading } = useSchedule(group)
 
   if (!group) return <Navigate to="/" />
 
@@ -32,34 +28,47 @@ const SchedulePage: React.FC = () => {
       <div className={styles.inner}>
         <div className={styles.content}>
           <Week />
-          {data ? <WeekOverview schedule={data.schedule} /> : null}
+          <WeekOverview schedule={data?.schedule} isLoading={isLoading} />
           <Filters />
-          {data ? (
-            <div className={styles.schedule}>
-              {!weekPart ? (
-                <React.Fragment>
-                  <Day {...data.schedule.MONDAY} dayValue={DayEnum.MONDAY} />
-                  <Day {...data.schedule.TUESDAY} dayValue={DayEnum.TUESDAY} />
-                  <Day
-                    {...data.schedule.WEDNESDAY}
-                    dayValue={DayEnum.WEDNESDAY}
-                  />
-                </React.Fragment>
-              ) : (
-                <React.Fragment>
-                  <Day
-                    {...data.schedule.THURSDAY}
-                    dayValue={DayEnum.THURSDAY}
-                  />
-                  <Day {...data.schedule.FRIDAY} dayValue={DayEnum.FRIDAY} />
-                  <Day
-                    {...data.schedule.SATURDAY}
-                    dayValue={DayEnum.SATURDAY}
-                  />
-                </React.Fragment>
-              )}
-            </div>
-          ) : null}
+          <div className={styles.schedule}>
+            {!weekPart ? (
+              <React.Fragment>
+                <Day
+                  {...data?.schedule[DayEnum.MONDAY]}
+                  dayValue={DayEnum.MONDAY}
+                  isLoading={isLoading}
+                />
+                <Day
+                  {...data?.schedule[DayEnum.TUESDAY]}
+                  dayValue={DayEnum.TUESDAY}
+                  isLoading={isLoading}
+                />
+                <Day
+                  {...data?.schedule[DayEnum.WEDNESDAY]}
+                  dayValue={DayEnum.WEDNESDAY}
+                  isLoading={isLoading}
+                />
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                <Day
+                  {...data?.schedule[DayEnum.THURSDAY]}
+                  dayValue={DayEnum.THURSDAY}
+                  isLoading={isLoading}
+                />
+                <Day
+                  {...data?.schedule[DayEnum.FRIDAY]}
+                  dayValue={DayEnum.FRIDAY}
+                  isLoading={isLoading}
+                />
+                <Day
+                  {...data?.schedule[DayEnum.SATURDAY]}
+                  dayValue={DayEnum.SATURDAY}
+                  isLoading={isLoading}
+                />
+              </React.Fragment>
+            )}
+          </div>
         </div>
       </div>
     </div>

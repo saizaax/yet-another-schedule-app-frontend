@@ -8,6 +8,8 @@ export const getClasses = (
   showLate: boolean = true,
   showLectures: boolean = true
 ) => {
+  if (!classes) return []
+
   const filtered = classes
     .filter((item) => item.weeks.includes(week))
     .filter((item) => showLectures || item.type !== "Лекция")
@@ -47,6 +49,8 @@ export const getProfessorClasses = (
   classes: SubjectType[],
   weekType: "Чётная" | "Нечётная"
 ) => {
+  if (!classes) return []
+
   const filtered = classes
     .filter((item) =>
       weekType === "Чётная"

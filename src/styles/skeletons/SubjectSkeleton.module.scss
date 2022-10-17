@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 32px;
+  padding-bottom: 25px;
+  gap: 10px;
+  height: 170px;
+  background: #ffffff;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.025);
+  border-radius: 15px;
+  position: relative;
+  margin-top: 11px;
+
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: absolute;
+    top: -11px;
+  }
+}

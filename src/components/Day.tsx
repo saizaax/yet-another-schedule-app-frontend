@@ -11,19 +11,30 @@ import { currentWeekAtom, scheduleParamsAtom } from "@atoms/scheduleAtom"
 import { getDate } from "@utils/getSemesterInfo"
 import { getClasses, getProfessorClasses } from "@utils/getClasses"
 import moment from "moment"
+import { SubjectSkeleton } from "./skeletons/SubjectSkeleton"
 
 type Props = {
   day: string
   classes: SubjectType[]
   dayValue: DayEnum
   weekType?: "Чётная" | "Нечётная"
+  isLoading?: boolean
 }
 
-const Day: React.FC<Props> = ({ day, dayValue, classes, weekType }) => {
+const Day: React.FC<Props> = ({
+  day,
+  dayValue,
+  classes,
+  weekType,
+  isLoading
+}) => {
   const [week] = useAtom(currentWeekAtom)
   const [params] = useAtom(scheduleParamsAtom)
 
   const date = weekType ? weekType : getDate(week, dayValue)
+  const skeletons = Array(3)
+    .fill(null)
+    .map((i, index) => <SubjectSkeleton key={index} />)
 
   const subjects = weekType
     ? getProfessorClasses(classes, weekType).map((item) => (
@@ -50,7 +61,7 @@ const Day: React.FC<Props> = ({ day, dayValue, classes, weekType }) => {
         <p>{date}</p>
       </div>
       <div className={styles.subjects}>
-        {subjects && subjects.length ? subjects : <Free />}
+        {isLoading ? skeletons : subjects.length ? subjects : <Free />}
       </div>
     </div>
   )

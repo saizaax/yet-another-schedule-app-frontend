@@ -11,7 +11,7 @@ import { useSearchParams } from "react-router-dom"
 import { useProfessor } from "@api/useProfessors"
 import { DayEnum } from "@app-types/schedule.types"
 import { Day } from "@components/Day"
-import { Spinner } from "@components/Spinner"
+import { ProfessorModalSkeleton } from "@components/skeletons/ProfessorModalSkeleton"
 
 type Props = {}
 
@@ -42,7 +42,7 @@ const ProfessorModal: React.FC<Props> = () => {
   if (isLoading)
     return (
       <Modal handleClose={handleClose}>
-        <Spinner fullWindow={false} />
+        <ProfessorModalSkeleton />
       </Modal>
     )
 

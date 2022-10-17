@@ -14,6 +14,7 @@ import { useAtom } from "jotai"
 import { professorPopup } from "@atoms/popupsAtom"
 import { Empty } from "@components/Empty"
 import { Spinner } from "@components/Spinner"
+import { ProfessorSkeleton } from "@components/skeletons/ProfessorSkeleton"
 
 const ProfessorsPage: React.FC = () => {
   const [, setPopup] = useAtom(professorPopup)
@@ -40,13 +41,21 @@ const ProfessorsPage: React.FC = () => {
     []
   )
 
-  if (isLoading) return <Spinner />
+  const skeletons = (
+    <div className={styles.container}>
+      {Array.from({ length: 24 }, (_, index) => (
+        <ProfessorSkeleton key={index} />
+      ))}
+    </div>
+  )
 
-  const professors = data
-    ? data
-        .slice(0, 48)
-        .map((item: ProfessorType) => <Professor key={item.id} {...item} />)
-    : null
+  const professors = data ? (
+    <div className={styles.container}>
+      {data.slice(0, 48).map((item: ProfessorType) => (
+        <Professor key={item.id} {...item} />
+      ))}
+    </div>
+  ) : null
 
   return (
     <div className={styles.professors}>
@@ -62,11 +71,7 @@ const ProfessorsPage: React.FC = () => {
             />
             <SearchIcon width={22} height={22} />
           </div>
-          {professors && professors.length ? (
-            <div className={styles.container}>{professors}</div>
-          ) : (
-            <Empty />
-          )}
+          {isLoading ? skeletons : data.length ? professors : <Empty />}
         </div>
       </div>
     </div>

@@ -9,12 +9,14 @@ import { ReactComponent as WeekIcon } from "@icons/week.svg"
 import { ScheduleType } from "@app-types/schedule.types"
 import { useAtom } from "jotai"
 import { currentWeekAtom } from "@atoms/scheduleAtom"
+import { WeekOverviewSkeleton } from "./skeletons/WeekOverviewSkeleton"
 
 type Props = {
   schedule: ScheduleType
+  isLoading: boolean
 }
 
-const WeekOverview: React.FC<Props> = ({ schedule }) => {
+const WeekOverview: React.FC<Props> = ({ schedule, isLoading }) => {
   const [currentWeek] = useAtom(currentWeekAtom)
 
   const [week, setWeek] = React.useState({
@@ -26,19 +28,25 @@ const WeekOverview: React.FC<Props> = ({ schedule }) => {
   })
 
   React.useEffect(() => {
-    const subjects = Object.values(schedule)
-      .map((day) => day.classes)
-      .flat()
-      .filter((item) => item.weeks.includes(currentWeek))
+    if (schedule) {
+      const subjects = Object.values(schedule)
+        .map((day) => day.classes)
+        .flat()
+        .filter((item) => item.weeks.includes(currentWeek))
 
-    const classes = subjects.length
-    const lectures = subjects.filter((item) => item.type === "Лекция").length
-    const practices = subjects.filter((item) => item.type === "Практика").length
-    const hours = subjects.length * 1.5
-    const type = currentWeek % 2 === 0 ? "Чётная" : "Нечётная"
+      const classes = subjects.length
+      const lectures = subjects.filter((item) => item.type === "Лекция").length
+      const practices = subjects.filter(
+        (item) => item.type === "Практика"
+      ).length
+      const hours = subjects.length * 1.5
+      const type = currentWeek % 2 === 0 ? "Чётная" : "Нечётная"
 
-    setWeek({ classes, lectures, practices, hours, type })
+      setWeek({ classes, lectures, practices, hours, type })
+    }
   }, [schedule])
+
+  if (isLoading) return <WeekOverviewSkeleton />
 
   return (
     <div className={styles.container}>
