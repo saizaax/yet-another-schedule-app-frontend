@@ -64,7 +64,7 @@ const WeekOverview: React.FC<Props> = ({ schedule, isLoading }) => {
           </div>
         </div>
         {/* Practices */}
-        <hr />
+        {/* <hr /> */}
         <div className={styles.item}>
           <div className={styles.icon}>
             <PracticeIcon width={18} height={18} />
@@ -76,7 +76,7 @@ const WeekOverview: React.FC<Props> = ({ schedule, isLoading }) => {
           </div>
         </div>
         {/* Lectures */}
-        <hr />
+        {/* <hr /> */}
         <div className={styles.item}>
           <div className={styles.icon}>
             <LectureIcon width={18} height={18} />
@@ -88,7 +88,7 @@ const WeekOverview: React.FC<Props> = ({ schedule, isLoading }) => {
           </div>
         </div>
         {/* Hours */}
-        <hr />
+        {/* <hr /> */}
         <div className={styles.item}>
           <div className={styles.icon}>
             <TimeIcon width={18} height={18} />
@@ -100,7 +100,7 @@ const WeekOverview: React.FC<Props> = ({ schedule, isLoading }) => {
           </div>
         </div>
         {/* Week */}
-        <hr />
+        {/* <hr /> */}
         <div className={styles.item}>
           <div className={styles.icon}>
             <WeekIcon width={18} height={18} />

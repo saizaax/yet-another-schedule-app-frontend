@@ -33,16 +33,20 @@
         font-weight: 500;
         font-size: 18px;
         line-height: 22px;
-        color: #5E657D;
+        color: #5e657d;
         cursor: pointer;
-        
+
         &:hover {
-          color: #2F82FF;
+          color: #2f82ff;
         }
       }
 
       .active {
-        color: #2F82FF;
+        color: #2f82ff;
+      }
+
+      @media screen and (max-width: 1290px) {
+        gap: 45px;
       }
     }
 
@@ -52,7 +56,7 @@
       justify-content: flex-end;
 
       button {
-        color: #5E657D;
+        color: #5e657d;
         display: flex;
         align-items: center;
         cursor: pointer;
@@ -62,12 +66,30 @@
         font-weight: 500;
         font-size: 18px;
         line-height: 22px;
-        color: #5E657D;
+        color: #5e657d;
 
         &:hover {
-          color: #2F82FF;
+          color: #2f82ff;
         }
       }
     }
+
+    @media screen and (max-width: 1190px) {
+      .settings {
+        display: none;
+      }
+
+      .nav {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1440px) {
+    padding: 0px 60px;
+  }
+
+  @media screen and (max-width: 640px) {
+    padding: 0px 30px;
   }
 }

@@ -15,6 +15,7 @@ import { professorPopup } from "@atoms/popupsAtom"
 import { Empty } from "@components/Empty"
 import { Spinner } from "@components/Spinner"
 import { ProfessorSkeleton } from "@components/skeletons/ProfessorSkeleton"
+import { Menu } from "@components/Menu"
 
 const ProfessorsPage: React.FC = () => {
   const [, setPopup] = useAtom(professorPopup)
@@ -60,6 +61,7 @@ const ProfessorsPage: React.FC = () => {
   return (
     <div className={styles.professors}>
       <Header />
+      <Menu />
       <div className={styles.inner}>
         <div className={styles.content}>
           <div className={styles.search}>

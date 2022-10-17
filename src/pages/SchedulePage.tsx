@@ -13,6 +13,7 @@ import { currentWeekPartAtom, groupAtom } from "@atoms/scheduleAtom"
 import { DayEnum } from "@app-types/schedule.types"
 import { Navigate, useNavigate } from "react-router-dom"
 import { Spinner } from "@components/Spinner"
+import { Menu } from "@components/Menu"
 
 const SchedulePage: React.FC = () => {
   const [group] = useAtom(groupAtom)
@@ -25,6 +26,7 @@ const SchedulePage: React.FC = () => {
   return (
     <div className={styles.container}>
       <Header />
+      <Menu />
       <div className={styles.inner}>
         <div className={styles.content}>
           <Week />

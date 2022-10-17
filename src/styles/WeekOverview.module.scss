@@ -2,12 +2,12 @@
   background: #FFFFFF;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.025);
   border-radius: 15px;
-  height: 72px;
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 28px;
+  padding: 28px 28px;
+  gap: 20px;
   margin-top: 32px;
 
   p {
@@ -19,7 +19,8 @@
 
   .items {
     display: flex;
-    gap: 25px;
+    column-gap: 50px;
+    row-gap: 25px;
     align-items: center;
 
     hr {
@@ -74,6 +75,16 @@
           color: #717B97;
         }
       }
+    }
+  }
+
+  @media screen and (max-width: 1430px) {
+    flex-wrap: wrap;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .items {
+      flex-wrap: wrap;
     }
   }
 }

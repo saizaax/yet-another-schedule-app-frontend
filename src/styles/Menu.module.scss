@@ -1,0 +1,66 @@
+.menu {
+  position: fixed;
+  bottom: 0px;
+  z-index: 1;
+  width: 100%;
+  height: 70px;
+  background: #fff;
+  box-shadow: -5px -5px 15px rgba(0, 0, 0, 0.04);
+  align-items: center;
+  justify-content: center;
+  padding: 0px 60px;
+  display: none;
+
+  .nav {
+    display: flex;
+    width: 100%;
+    align-items: center;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 22px;
+      color: #5e657d;
+      cursor: pointer;
+      width: 100%;
+
+      &:hover {
+        color: #2f82ff;
+      }
+    }
+
+    .active {
+      color: #2f82ff;
+    }
+
+    button {
+      color: #5e657d;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      gap: 10px;
+      border: none;
+      background: transparent;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 22px;
+      color: #5e657d;
+
+      &:hover {
+        color: #2f82ff;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1190px) {
+    display: flex;
+  }
+
+  @media screen and (max-width: 640px) {
+    padding: 0px 40px;
+  }
+}

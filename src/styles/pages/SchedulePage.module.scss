@@ -23,8 +23,36 @@
       .schedule {
         margin-top: 32px;
         display: flex;
-        column-gap: 16px;
+        gap: 16px;
       }
+    }
+  }
+
+  @media screen and (max-width: 1440px) {
+    .inner {
+      padding: 0px 60px;
+    }
+  }
+
+  @media screen and (max-width: 1280px) {
+    .inner {
+      margin-bottom: 80px;
+    }
+
+    .schedule {
+      flex-direction: column;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .inner {
+      padding: 0px 30px;
+    }
+  }
+
+  @media screen and (max-width: 520px) {
+    .inner {
+      padding: 0px 15px;
     }
   }
 }

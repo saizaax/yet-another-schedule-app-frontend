@@ -4,6 +4,7 @@
   justify-content: space-between;
   margin-top: 32px;
   padding: 0px 28px;
+  gap: 20px;
 
   .container {
     display: flex;
@@ -87,5 +88,10 @@
         }
       }
     }
+  }
+
+  @media screen and (max-width: 520px) {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
