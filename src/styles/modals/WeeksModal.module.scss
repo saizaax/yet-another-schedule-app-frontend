@@ -12,13 +12,12 @@
   }
 
   .weeks {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     gap: 15px;
 
     button {
-      height: 64px;
-      width: 64px;
+      aspect-ratio: 1 / 1;
       border: 1px solid #43485b1c;
       border-radius: 12px;
       display: flex;
@@ -43,6 +42,14 @@
       &:hover {
         border-color: #0085ff;
       }
+    }
+
+    @media screen and (max-width: 560px) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    @media screen and (max-width: 430px) {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 }

@@ -23,6 +23,7 @@
         font-weight: 700;
         font-size: 44px;
         line-height: 53px;
+        text-align: center;
       }
 
       p {
@@ -142,17 +143,35 @@
 
       &:hover {
         transition: 0.2s;
-        border-color: #43495D;
+        border-color: #43495d;
 
         svg {
           transition: 0.2s;
-          fill: #43495D;
+          fill: #43495d;
         }
 
         p {
           transition: 0.2s;
-          color: #43495D;
+          color: #43495d;
         }
+      }
+    }
+
+    @media screen and (max-width: 640px) {
+      .group {
+        padding: 0px 20px;
+      }
+
+      .title {
+        h1 {
+          font-size: 36px
+        }
+
+        p {
+          font-size: 16px;
+        }
+
+        row-gap: 10px;
       }
     }
   }

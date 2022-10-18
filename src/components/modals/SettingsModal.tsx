@@ -24,6 +24,7 @@ const SettingsModal: React.FC = () => {
     setShow(false)
     setGroup("")
     localStorage.setItem("schedule-group", "")
+    document.body.style.overflow = "auto"
     navigate("/")
   }
 

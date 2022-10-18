@@ -9,13 +9,24 @@ type Props = {
 }
 
 const Modal: React.FC<Props> = ({ children, handleClose }) => {
+  React.useEffect(() => {
+    document.body.style.overflow = "hidden"
+  }, [])
+
+  const close = () => {
+    document.body.style.overflow = "auto"
+    handleClose()
+  }
+
   return (
     <div className={styles.modal}>
       <div className={styles.popup}>
-        <button className={styles.close} onClick={handleClose}>
-          <CloseIcon width={20} height={20} />
-        </button>
-        {children}
+        <div className={styles.window}>
+          <button className={styles.close} onClick={close}>
+            <CloseIcon width={20} height={20} />
+          </button>
+          {children}
+        </div>
       </div>
     </div>
   )
