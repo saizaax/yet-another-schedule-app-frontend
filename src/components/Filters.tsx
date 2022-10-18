@@ -32,6 +32,17 @@ const Filters: React.FC = () => {
     localStorage.setItem("schedule-settings", JSON.stringify(p))
   }
 
+  React.useEffect(() => {
+    const keyDownHandler = (event: KeyboardEvent) => {
+      if (event.key === "ArrowRight") handleWeekChange("FORWARD")
+      if (event.key === "ArrowLeft") handleWeekChange("BACK")
+    }
+
+    document.addEventListener("keydown", keyDownHandler)
+
+    return () => document.removeEventListener("keydown", keyDownHandler)
+  }, [handleWeekChange])
+
   return (
     <div className={styles.filters}>
       <div className={styles.container}>

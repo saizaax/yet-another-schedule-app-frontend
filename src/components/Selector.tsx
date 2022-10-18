@@ -1,6 +1,8 @@
 import React from "react"
 import styles from "@styles/Selector.module.scss"
 import cn from "classnames"
+import { modalAnimation } from "@animations"
+import { motion } from "framer-motion"
 
 type Props = {
   onChange: (value: string) => void
@@ -13,22 +15,24 @@ const Selector: React.FC<Props> = ({ onChange, isOpen, variants }) => {
     if (onChange) onChange(value)
   }
 
-  const items = variants ? variants.map((item, index) => (
-    <button
-      key={index}
-      className={styles.item}
-      onMouseDown={() => handleChange(item)}
-    >
-      {item}
-    </button>
-  )) : null
+  const items = variants
+    ? variants.map((item, index) => (
+        <button
+          key={index}
+          className={styles.item}
+          onMouseDown={() => handleChange(item)}
+        >
+          {item}
+        </button>
+      ))
+    : null
 
   return (
     <React.Fragment>
       {isOpen ? (
-        <div className={styles.selector}>
+        <motion.div className={styles.selector} {...modalAnimation}>
           {items && items.length ? items : null}
-        </div>
+        </motion.div>
       ) : null}
     </React.Fragment>
   )

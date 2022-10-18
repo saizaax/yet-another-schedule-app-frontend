@@ -11,14 +11,22 @@ type Props = {
 }
 
 const Modal: React.FC<Props> = ({ children, handleClose }) => {
-  React.useEffect(() => {
-    document.body.style.overflow = "hidden"
-  }, [])
-
   const close = () => {
     document.body.style.overflow = "auto"
     handleClose()
   }
+
+  React.useEffect(() => {
+    document.body.style.overflow = "hidden"
+
+    const keyDownHandler = (event: KeyboardEvent) => {
+      if (event.key === "Escape") close()
+    }
+
+    document.addEventListener("keydown", keyDownHandler)
+
+    return () => document.removeEventListener("keydown", keyDownHandler)
+  }, [])
 
   return (
     <div className={styles.modal}>
