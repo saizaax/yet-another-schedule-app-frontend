@@ -5,6 +5,8 @@ import { ReactComponent as IntervalIcon } from "@icons/run.svg"
 import { ReactComponent as BreakIcon } from "@icons/cup.svg"
 import { useAtom } from "jotai"
 import { scheduleParamsAtom } from "@atoms/scheduleAtom"
+import { itemAnimation } from "@animations"
+import { motion } from "framer-motion"
 
 type Props = {
   hours: number
@@ -18,10 +20,10 @@ const Break: React.FC<Props> = ({ hours, minutes }) => {
     return (
       <React.Fragment>
         {params.showBreaks ? (
-          <div className={styles.break}>
+          <motion.div className={styles.break} variants={itemAnimation}>
             <BreakIcon width={24} height={24} />
             <p>Перерыв 30 минут</p>
-          </div>
+          </motion.div>
         ) : null}
       </React.Fragment>
     )
@@ -29,13 +31,13 @@ const Break: React.FC<Props> = ({ hours, minutes }) => {
   return (
     <React.Fragment>
       {params.showEmpty ? (
-        <div className={styles.interval}>
+        <motion.div className={styles.interval} variants={itemAnimation}>
           <IntervalIcon width={24} height={24} />
           <p>
             Окно{hours ? ` ${hours} часа` : ``}
             {minutes ? ` ${minutes} минут` : ``}
           </p>
-        </div>
+        </motion.div>
       ) : null}
     </React.Fragment>
   )

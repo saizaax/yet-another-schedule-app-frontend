@@ -4,6 +4,8 @@ import styles from "@styles/Subject.module.scss"
 import { Tag } from "@components/Tag"
 import { IconInfo } from "@components/IconInfo"
 import { getIsLate } from "@utils/getSemesterInfo"
+import { AnimatePresence, motion } from "framer-motion"
+import { itemAnimation } from "@animations"
 
 type Props = {
   type: "Лекция" | "Практика" | "Лабораторная"
@@ -31,7 +33,7 @@ const Subject: React.FC<Props> = ({
   weekType
 }) => {
   return (
-    <div className={styles.subject}>
+    <motion.div className={styles.subject} variants={itemAnimation}>
       {/* Tags */}
       <div className={styles.tags}>
         <div className={styles.container}>
@@ -70,7 +72,7 @@ const Subject: React.FC<Props> = ({
         {/* Weeks */}
         {weekType ? <IconInfo type="week">{weeks.join(" · ")}</IconInfo> : null}
       </div>
-    </div>
+    </motion.div>
   )
 }
 

@@ -13,9 +13,11 @@ import { useSearchParams } from "react-router-dom"
 import { useAtom } from "jotai"
 import { professorPopup } from "@atoms/popupsAtom"
 import { Empty } from "@components/Empty"
-import { Spinner } from "@components/Spinner"
 import { ProfessorSkeleton } from "@components/skeletons/ProfessorSkeleton"
 import { Menu } from "@components/Menu"
+import { motion } from "framer-motion"
+
+import { containerAnimation, itemAnimation } from "@animations"
 
 const ProfessorsPage: React.FC = () => {
   const [, setPopup] = useAtom(professorPopup)
@@ -51,11 +53,17 @@ const ProfessorsPage: React.FC = () => {
   )
 
   const professors = data ? (
-    <div className={styles.container}>
+    <motion.div
+      className={styles.container}
+      layout
+      initial="hidden"
+      animate="visible"
+      variants={containerAnimation}
+    >
       {data.slice(0, 48).map((item: ProfessorType) => (
         <Professor key={item.id} {...item} />
       ))}
-    </div>
+    </motion.div>
   ) : null
 
   return (

@@ -2,12 +2,14 @@ import React from "react"
 import styles from "@styles/skeletons/SubjectSkeleton.module.scss"
 
 import ContentLoader from "react-content-loader"
+import { motion } from "framer-motion"
+import { itemAnimation } from "@animations"
 
 type Props = {}
 
 const SubjectSkeleton: React.FC<Props> = () => {
   return (
-    <div className={styles.container}>
+    <motion.div className={styles.container} variants={itemAnimation}>
       <ContentLoader
         speed={2}
         width="100%"
@@ -23,7 +25,7 @@ const SubjectSkeleton: React.FC<Props> = () => {
         <rect x="164" y="92" rx="6" ry="6" width="130" height="28" />
         <rect x="24" y="131" rx="6" ry="6" width="180" height="28" />
       </ContentLoader>
-    </div>
+    </motion.div>
   )
 }
 

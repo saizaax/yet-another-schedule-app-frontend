@@ -9,10 +9,9 @@ import { useAtom } from "jotai"
 import { groupAtom } from "@atoms/scheduleAtom"
 import { useGroups } from "@api/useGroups"
 import { Navigate, useNavigate } from "react-router-dom"
+import { Spinner } from "@components/Spinner"
 
 const GroupPage: React.FC = () => {
-  const navigate = useNavigate()
-
   const { data, isLoading, isError } = useGroups()
   const [group, setGroup] = useAtom(groupAtom)
 
@@ -66,6 +65,8 @@ const GroupPage: React.FC = () => {
     setGroup(groupValue)
     localStorage.setItem("schedule-group", groupValue)
   }
+
+  if (isLoading) return <Spinner />
 
   if (group) return <Navigate to="/schedule" />
 

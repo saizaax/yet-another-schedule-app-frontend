@@ -26,7 +26,8 @@
       "@icons/*": ["src/assets/icons/*"],
       "@atoms/*": ["src/atoms/*"],
       "@api/*": ["src/api/*"],
-      "@config": ["src/config.ts"]
+      "@config": ["src/config.ts"],
+      "@animations": ["src/animations.ts"]
     }
   },
   "include": ["src"],

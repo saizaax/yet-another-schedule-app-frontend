@@ -5,15 +5,18 @@
   background-color: rgba($color: #000000, $alpha: 0.4);
   backdrop-filter: blur(5px);
   z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .popup {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
     width: 100%;
     max-width: 620px;
     max-height: 620px;
-    transform: translate(-50%, -50%);
+    // transform: translate(-100%, -100%);
     padding: 15px;
 
     .window {

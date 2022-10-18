@@ -5,6 +5,9 @@ import { ReactComponent as ArrowIcon } from "@icons/arrow.svg"
 
 import { IconInfo } from "@components/IconInfo"
 import { Link } from "react-router-dom"
+import { motion } from "framer-motion"
+
+import { itemAnimation } from "@animations"
 
 type Props = {
   id: string
@@ -22,7 +25,7 @@ const Professor: React.FC<Props> = ({ id, name, locations, days }) => {
   return (
     <React.Fragment>
       {name ? (
-        <div className={styles.card}>
+        <motion.div className={styles.card} variants={itemAnimation}>
           <h3>{name}</h3>
           <div className={styles.info}>
             {locationsList ? (
@@ -34,7 +37,7 @@ const Professor: React.FC<Props> = ({ id, name, locations, days }) => {
             Подробнее
             <ArrowIcon width={20} height={20} />
           </Link>
-        </div>
+        </motion.div>
       ) : null}
     </React.Fragment>
   )
