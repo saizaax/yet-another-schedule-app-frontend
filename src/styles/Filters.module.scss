@@ -10,7 +10,7 @@
     display: flex;
     column-gap: 25px;
     align-items: center;
-    
+
     .item {
       display: flex;
       column-gap: 10px;
@@ -21,7 +21,7 @@
         font-weight: 500;
         font-size: 16px;
         line-height: 19px;
-        color: #43485B;
+        color: #43485b;
       }
     }
   }
@@ -36,13 +36,13 @@
       align-items: center;
       width: 40px;
       height: 40px;
-      background: #FFFFFF;
+      background: #ffffff;
       box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.025);
       border: none;
       border-radius: 40px;
       color: rgba(67, 72, 91, 0.75);
       cursor: pointer;
-      
+
       svg {
         position: relative;
       }
@@ -70,7 +70,7 @@
       &:hover {
         svg {
           transition: 0.1s;
-          color: #0085FF;
+          color: #0085ff;
         }
       }
     }
@@ -84,7 +84,7 @@
       &:hover {
         svg {
           transition: 0.1s;
-          color: #0085FF;
+          color: #0085ff;
         }
       }
     }

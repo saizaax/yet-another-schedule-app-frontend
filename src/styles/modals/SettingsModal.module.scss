@@ -8,7 +8,7 @@
     font-weight: 600;
     font-size: 18px;
     line-height: 22px;
-    color: #43485B;
+    color: #43485b;
   }
 
   .group {
@@ -36,7 +36,7 @@
         font-weight: 500;
         font-size: 16px;
         line-height: 19px;
-        color: #43485B;
+        color: #43485b;
       }
 
       button {
@@ -49,7 +49,7 @@
         border: none;
         background: rgba(47, 130, 255, 0.1);
         border-radius: 24px;
-        color: #0085FF;
+        color: #0085ff;
         cursor: pointer;
 
         &:hover {
@@ -74,7 +74,7 @@
         font-weight: 500;
         font-size: 16px;
         line-height: 19px;
-        color: #43485B;
+        color: #43485b;
       }
     }
   }
@@ -107,16 +107,16 @@
 
     &:hover {
       transition: 0.2s;
-      border-color: #43495D;
+      border-color: #43495d;
 
       svg {
         transition: 0.2s;
-        fill: #43495D;
+        fill: #43495d;
       }
 
       p {
         transition: 0.2s;
-        color: #43495D;
+        color: #43495d;
       }
     }
   }

@@ -1,6 +1,6 @@
-import { ScheduleParamsType } from "@app-types/settings.types";
-import { getCurrentWeek, getWeekPart } from "@utils/getSemesterInfo";
-import { atom } from "jotai";
+import { ScheduleParamsType } from "@app-types/settings.types"
+import { getCurrentWeek, getWeekPart } from "@utils/getSemesterInfo"
+import { atom } from "jotai"
 
 export const currentWeekAtom = atom<number>(getCurrentWeek())
 
