@@ -8,6 +8,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ghcr.io/saizaax/yasa-frontend
+  SERVICE_NAME: yasa-backend_nginx
   GH_PAT: ${{ secrets.GH_PAT }}
 
 jobs:
@@ -32,3 +33,19 @@ jobs:
           docker tag $IMAGE_NAME $IMAGE_NAME:$GITHUB_RUN_NUMBER
           docker push $IMAGE_NAME:latest
           docker push $IMAGE_NAME:$GITHUB_RUN_NUMBER
+
+  update-service:
+    needs: [build-and-push]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update Docker service
+        uses: appleboy/ssh-action@master
+        env:
+          IMAGE: ${{ env.IMAGE_NAME }}:${{ github.run_number }}
+          SERVICE: ${{ env.SERVICE_NAME }}
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          envs: IMAGE,SERVICE
+          script: docker service update --image $IMAGE $SERVICE --with-registry-auth
