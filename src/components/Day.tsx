@@ -1,21 +1,22 @@
 import React from "react"
 import styles from "@styles/Day.module.scss"
+import moment from "moment"
 
+import { AnimatePresence, motion } from "framer-motion"
+import { useAtom } from "jotai"
 import { v4 as uuid } from "uuid"
 
 import { BreakType, DayEnum, SubjectType } from "@app-types/schedule.types"
+import { currentWeekAtom, scheduleParamsAtom } from "@atoms/scheduleAtom"
+import { getClasses, getProfessorClasses } from "@utils/getClasses"
+import { getDate } from "@utils/getSemesterInfo"
+
+import { containerAnimation } from "@animations"
 
 import { Subject } from "@components/Subject"
 import { Break } from "@components/Break"
 import { Free } from "@components/Free"
-import { useAtom } from "jotai"
-import { currentWeekAtom, scheduleParamsAtom } from "@atoms/scheduleAtom"
-import { getDate } from "@utils/getSemesterInfo"
-import { getClasses, getProfessorClasses } from "@utils/getClasses"
-import moment from "moment"
-import { SubjectSkeleton } from "./skeletons/SubjectSkeleton"
-import { AnimatePresence, motion } from "framer-motion"
-import { containerAnimation } from "@animations"
+import { SubjectSkeleton } from "@components/skeletons/SubjectSkeleton"
 
 type Props = {
   day: string

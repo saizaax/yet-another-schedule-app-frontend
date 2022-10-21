@@ -3,10 +3,12 @@ import styles from "@styles/Break.module.scss"
 
 import { ReactComponent as IntervalIcon } from "@icons/run.svg"
 import { ReactComponent as BreakIcon } from "@icons/cup.svg"
+
 import { useAtom } from "jotai"
+import { motion } from "framer-motion"
+
 import { scheduleParamsAtom } from "@atoms/scheduleAtom"
 import { itemAnimation } from "@animations"
-import { motion } from "framer-motion"
 
 type Props = {
   hours: number

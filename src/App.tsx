@@ -1,7 +1,9 @@
 import React from "react"
-import { BrowserRouter, Route, Routes } from "react-router-dom"
 
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { useAtom } from "jotai"
+
+import { groupAtom, scheduleParamsAtom } from "@atoms/scheduleAtom"
 
 import { GroupPage } from "@pages/GroupPage"
 import { ProfessorsPage } from "@pages/ProfessorsPage"
@@ -9,7 +11,6 @@ import { SchedulePage } from "@pages/SchedulePage"
 import { MapPage } from "@pages/MapPage"
 
 import { Modals } from "@components/modals/Modals"
-import { groupAtom, scheduleParamsAtom } from "@atoms/scheduleAtom"
 import { Spinner } from "@components/Spinner"
 
 function App() {

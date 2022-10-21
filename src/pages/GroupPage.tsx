@@ -1,14 +1,16 @@
 import React from "react"
 import styles from "@styles/pages/GroupPage.module.scss"
-
 import debounce from "lodash.debounce"
 
-import { ReactComponent as GitHubIcon } from "@icons/github.svg"
-import { Selector } from "@components/Selector"
+import { Navigate } from "react-router-dom"
 import { useAtom } from "jotai"
+
+import { ReactComponent as GitHubIcon } from "@icons/github.svg"
+
 import { groupAtom } from "@atoms/scheduleAtom"
 import { useGroups } from "@api/useGroups"
-import { Navigate } from "react-router-dom"
+
+import { Selector } from "@components/Selector"
 import { Spinner } from "@components/Spinner"
 
 const GroupPage: React.FC = () => {

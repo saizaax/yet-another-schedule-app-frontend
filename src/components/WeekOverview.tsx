@@ -1,15 +1,18 @@
 import React from "react"
 import styles from "@styles/WeekOverview.module.scss"
 
+import { useAtom } from "jotai"
+
 import { ReactComponent as ClassesIcon } from "@icons/classes.svg"
 import { ReactComponent as LectureIcon } from "@icons/lecture.svg"
 import { ReactComponent as PracticeIcon } from "@icons/practice.svg"
 import { ReactComponent as TimeIcon } from "@icons/time.svg"
 import { ReactComponent as WeekIcon } from "@icons/week.svg"
+
 import { ScheduleType } from "@app-types/schedule.types"
-import { useAtom } from "jotai"
 import { currentWeekAtom } from "@atoms/scheduleAtom"
-import { WeekOverviewSkeleton } from "./skeletons/WeekOverviewSkeleton"
+
+import { WeekOverviewSkeleton } from "@components/skeletons/WeekOverviewSkeleton"
 
 type Props = {
   schedule: ScheduleType

@@ -1,7 +1,9 @@
 import React from "react"
 import styles from "@styles/Free.module.scss"
-import { itemAnimation } from "@animations"
+
 import { motion } from "framer-motion"
+
+import { itemAnimation } from "@animations"
 
 type Props = {}
 

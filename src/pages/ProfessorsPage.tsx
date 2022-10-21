@@ -1,21 +1,22 @@
 import React from "react"
 import styles from "@styles/pages/ProfessorsPage.module.scss"
-
 import debounce from "lodash.debounce"
 
-import { Header } from "@components/Header"
-import { Professor } from "@components/Professor"
-
-import { ReactComponent as SearchIcon } from "@icons/search.svg"
-import { useProfessors } from "@api/useProfessors"
-import { ProfessorType } from "@app-types/schedule.types"
 import { useSearchParams } from "react-router-dom"
 import { useAtom } from "jotai"
-import { professorPopup } from "@atoms/popupsAtom"
-import { Empty } from "@components/Empty"
-import { ProfessorSkeleton } from "@components/skeletons/ProfessorSkeleton"
-import { Menu } from "@components/Menu"
 import { motion } from "framer-motion"
+
+import { ReactComponent as SearchIcon } from "@icons/search.svg"
+
+import { useProfessors } from "@api/useProfessors"
+import { ProfessorType } from "@app-types/schedule.types"
+import { professorPopup } from "@atoms/popupsAtom"
+
+import { Header } from "@components/Header"
+import { Empty } from "@components/Empty"
+import { Menu } from "@components/Menu"
+import { Professor } from "@components/Professor"
+import { ProfessorSkeleton } from "@components/skeletons/ProfessorSkeleton"
 
 import { containerAnimation } from "@animations"
 

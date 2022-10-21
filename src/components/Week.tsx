@@ -1,15 +1,15 @@
 import React from "react"
 import styles from "@styles/Week.module.scss"
 
-type Props = {}
+import { useAtom } from "jotai"
 
 import { ReactComponent as ArrowIcon } from "@icons/arrow.svg"
-import { currentWeekAtom, groupAtom } from "@atoms/scheduleAtom"
-import { useAtom } from "jotai"
+
 import { getSemesterInfo } from "@utils/getSemesterInfo"
+import { currentWeekAtom, groupAtom } from "@atoms/scheduleAtom"
 import { weeksPopup } from "@atoms/popupsAtom"
 
-const Week: React.FC<Props> = () => {
+const Week: React.FC = () => {
   const [, setShow] = useAtom(weeksPopup)
   const [week] = useAtom(currentWeekAtom)
   const [group] = useAtom(groupAtom)

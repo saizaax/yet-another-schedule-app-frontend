@@ -2,14 +2,15 @@ import React from "react"
 import styles from "@styles/modals/ProfessorModal.module.scss"
 import cn from "classnames"
 
+import { useSearchParams } from "react-router-dom"
 import { useAtom } from "jotai"
+
+import { DayEnum } from "@app-types/schedule.types"
+import { useProfessor } from "@api/useProfessors"
 import { professorPopup } from "@atoms/popupsAtom"
 
 import { IconInfo } from "@components/IconInfo"
 import { Modal } from "@components/Modal"
-import { useSearchParams } from "react-router-dom"
-import { useProfessor } from "@api/useProfessors"
-import { DayEnum } from "@app-types/schedule.types"
 import { Day } from "@components/Day"
 import { ProfessorModalSkeleton } from "@components/skeletons/ProfessorModalSkeleton"
 

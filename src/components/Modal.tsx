@@ -2,7 +2,9 @@ import React from "react"
 import styles from "@styles/Modal.module.scss"
 
 import { ReactComponent as CloseIcon } from "@icons/close.svg"
+
 import { motion } from "framer-motion"
+
 import { modalAnimation } from "@animations"
 
 type Props = {

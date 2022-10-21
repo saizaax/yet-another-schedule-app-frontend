@@ -1,8 +1,9 @@
 import React from "react"
 import styles from "@styles/Selector.module.scss"
 
-import { modalAnimation } from "@animations"
 import { motion } from "framer-motion"
+
+import { modalAnimation } from "@animations"
 
 type Props = {
   onChange: (value: string) => void

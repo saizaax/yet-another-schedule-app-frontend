@@ -3,8 +3,8 @@ import styles from "@styles/modals/SettingsModal.module.scss"
 import Switch from "rc-switch"
 
 import { useNavigate } from "react-router-dom"
-
 import { useAtom } from "jotai"
+
 import { settingsPopup } from "@atoms/popupsAtom"
 
 import { Modal } from "@components/Modal"

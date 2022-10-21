@@ -3,10 +3,11 @@ import styles from "@styles/modals/WeeksModal.module.scss"
 import cn from "classnames"
 
 import { useAtom } from "jotai"
+
 import { weeksPopup } from "@atoms/popupsAtom"
+import { getWeeksNumber } from "@utils/getSemesterInfo"
 
 import { Modal } from "@components/Modal"
-import { getWeeksNumber } from "@utils/getSemesterInfo"
 import { currentWeekAtom } from "@atoms/scheduleAtom"
 
 type Props = {}

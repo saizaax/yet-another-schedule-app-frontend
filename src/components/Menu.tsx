@@ -2,18 +2,17 @@ import React from "react"
 import styles from "@styles/Menu.module.scss"
 import cn from "classnames"
 
+import { Link, useLocation } from "react-router-dom"
+import { useAtom } from "jotai"
+
 import { ReactComponent as ScheduleIcon } from "@icons/schedule.svg"
 import { ReactComponent as ProfessorIcon } from "@icons/professor.svg"
 import { ReactComponent as MapIcon } from "@icons/map.svg"
 import { ReactComponent as SettingsIcon } from "@icons/settings.svg"
 
-import { Link, useLocation } from "react-router-dom"
 import { settingsPopup } from "@atoms/popupsAtom"
-import { useAtom } from "jotai"
 
-type Props = {}
-
-const Menu: React.FC<Props> = () => {
+const Menu: React.FC = () => {
   const location = useLocation()
   const [tab, setTab] = React.useState(location.pathname)
 

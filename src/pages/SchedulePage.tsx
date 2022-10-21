@@ -1,18 +1,20 @@
 import React from "react"
 import styles from "@styles/pages/SchedulePage.module.scss"
 
+import { Navigate } from "react-router-dom"
+import { useAtom } from "jotai"
+
 import { useSchedule } from "@api/useSchedule"
 
-import { Header } from "@components/Header"
-import { WeekOverview } from "@components/WeekOverview"
-import { Week } from "@components/Week"
-import { Filters } from "@components/Filters"
-import { Day } from "@components/Day"
-import { useAtom } from "jotai"
 import { currentWeekPartAtom, groupAtom } from "@atoms/scheduleAtom"
 import { DayEnum } from "@app-types/schedule.types"
-import { Navigate } from "react-router-dom"
+
+import { WeekOverview } from "@components/WeekOverview"
+import { Filters } from "@components/Filters"
+import { Header } from "@components/Header"
+import { Week } from "@components/Week"
 import { Menu } from "@components/Menu"
+import { Day } from "@components/Day"
 
 const SchedulePage: React.FC = () => {
   const [group] = useAtom(groupAtom)

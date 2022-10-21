@@ -1,9 +1,11 @@
 import React from "react"
 import styles from "@styles/Subject.module.scss"
 
+import { motion } from "framer-motion"
+
 import { Tag } from "@components/Tag"
 import { IconInfo } from "@components/IconInfo"
-import { motion } from "framer-motion"
+
 import { itemAnimation } from "@animations"
 
 type Props = {

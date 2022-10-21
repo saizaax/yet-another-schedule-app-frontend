@@ -1,17 +1,19 @@
 import React from "react"
 import styles from "@styles/Filters.module.scss"
 
-import { Switch } from "@components/Switch"
-
 import { ReactComponent as ArrowRight } from "@icons/chevron-right.svg"
 import { ReactComponent as ArrowLeft } from "@icons/chevron-left.svg"
+
 import { useAtom } from "jotai"
+
 import {
   currentWeekAtom,
   currentWeekPartAtom,
   scheduleParamsAtom
 } from "@atoms/scheduleAtom"
 import { getWeeksNumber } from "@utils/getSemesterInfo"
+
+import { Switch } from "@components/Switch"
 
 const Filters: React.FC = () => {
   const [week, setWeek] = useAtom(currentWeekAtom)

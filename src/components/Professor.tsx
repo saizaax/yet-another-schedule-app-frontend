@@ -3,11 +3,12 @@ import styles from "@styles/Professor.module.scss"
 
 import { ReactComponent as ArrowIcon } from "@icons/arrow.svg"
 
-import { IconInfo } from "@components/IconInfo"
 import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
 
 import { itemAnimation } from "@animations"
+
+import { IconInfo } from "@components/IconInfo"
 
 type Props = {
   id: string
