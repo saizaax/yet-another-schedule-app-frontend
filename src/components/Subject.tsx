@@ -3,8 +3,7 @@ import styles from "@styles/Subject.module.scss"
 
 import { Tag } from "@components/Tag"
 import { IconInfo } from "@components/IconInfo"
-import { getIsLate } from "@utils/getSemesterInfo"
-import { AnimatePresence, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import { itemAnimation } from "@animations"
 
 type Props = {

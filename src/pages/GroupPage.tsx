@@ -8,7 +8,7 @@ import { Selector } from "@components/Selector"
 import { useAtom } from "jotai"
 import { groupAtom } from "@atoms/scheduleAtom"
 import { useGroups } from "@api/useGroups"
-import { Navigate, useNavigate } from "react-router-dom"
+import { Navigate } from "react-router-dom"
 import { Spinner } from "@components/Spinner"
 
 const GroupPage: React.FC = () => {

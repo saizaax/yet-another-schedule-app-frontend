@@ -17,7 +17,7 @@ import { ProfessorSkeleton } from "@components/skeletons/ProfessorSkeleton"
 import { Menu } from "@components/Menu"
 import { motion } from "framer-motion"
 
-import { containerAnimation, itemAnimation } from "@animations"
+import { containerAnimation } from "@animations"
 
 const ProfessorsPage: React.FC = () => {
   const [, setPopup] = useAtom(professorPopup)

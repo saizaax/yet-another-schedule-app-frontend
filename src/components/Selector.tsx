@@ -1,6 +1,6 @@
 import React from "react"
 import styles from "@styles/Selector.module.scss"
-import cn from "classnames"
+
 import { modalAnimation } from "@animations"
 import { motion } from "framer-motion"
 

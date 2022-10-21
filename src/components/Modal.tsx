@@ -11,11 +11,6 @@ type Props = {
 }
 
 const Modal: React.FC<Props> = ({ children, handleClose }) => {
-  const close = () => {
-    document.body.style.overflow = "auto"
-    handleClose()
-  }
-
   React.useEffect(() => {
     document.body.style.overflow = "hidden"
 
@@ -25,14 +20,17 @@ const Modal: React.FC<Props> = ({ children, handleClose }) => {
 
     document.addEventListener("keydown", keyDownHandler)
 
-    return () => document.removeEventListener("keydown", keyDownHandler)
+    return () => {
+      document.body.style.overflow = "auto"
+      document.removeEventListener("keydown", keyDownHandler)
+    }
   }, [])
 
   return (
     <div className={styles.modal}>
       <motion.div className={styles.popup} {...modalAnimation}>
         <div className={styles.window}>
-          <button className={styles.close} onClick={close}>
+          <button className={styles.close} onClick={handleClose}>
             <CloseIcon width={20} height={20} />
           </button>
           {children}

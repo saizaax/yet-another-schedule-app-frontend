@@ -2,7 +2,7 @@ import React from "react"
 import styles from "@styles/modals/SettingsModal.module.scss"
 import Switch from "rc-switch"
 
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 import { useAtom } from "jotai"
 import { settingsPopup } from "@atoms/popupsAtom"
@@ -24,7 +24,6 @@ const SettingsModal: React.FC = () => {
     setShow(false)
     setGroup("")
     localStorage.setItem("schedule-group", "")
-    document.body.style.overflow = "auto"
     navigate("/")
   }
 

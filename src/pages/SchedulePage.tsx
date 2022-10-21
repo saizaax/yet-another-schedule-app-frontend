@@ -11,8 +11,7 @@ import { Day } from "@components/Day"
 import { useAtom } from "jotai"
 import { currentWeekPartAtom, groupAtom } from "@atoms/scheduleAtom"
 import { DayEnum } from "@app-types/schedule.types"
-import { Navigate, useNavigate } from "react-router-dom"
-import { Spinner } from "@components/Spinner"
+import { Navigate } from "react-router-dom"
 import { Menu } from "@components/Menu"
 
 const SchedulePage: React.FC = () => {
