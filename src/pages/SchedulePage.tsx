@@ -22,6 +22,10 @@ const SchedulePage: React.FC = () => {
 
   const { data, isLoading } = useSchedule(group)
 
+  React.useEffect(() => {
+    document.title = "Расписание 🗓️"
+  }, [])
+
   if (!group) return <Navigate to="/" />
 
   return (

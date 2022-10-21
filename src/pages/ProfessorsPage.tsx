@@ -38,6 +38,10 @@ const ProfessorsPage: React.FC = () => {
     setSearch(searchValue)
   }, [searchValue])
 
+  React.useEffect(() => {
+    document.title = "Преподаватели 🧑‍🏫"
+  }, [])
+
   const setSearch = React.useCallback(
     debounce((q) => {
       setSearchQuery(q)

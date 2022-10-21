@@ -7,6 +7,11 @@ import { Menu } from "@components/Menu"
 type Props = {}
 
 const MapPage: React.FC<Props> = () => {
+
+  React.useEffect(() => {
+    document.title = "Карта 🗺️"
+  }, [])
+
   return (
     <div className={styles.container}>
       <Header />

@@ -63,6 +63,10 @@ const GroupPage: React.FC = () => {
     updateIsGroupValid(variants, groupValue)
   }, [variants, groupValue])
 
+  React.useEffect(() => {
+    document.title = "Расписание РТУ МИРЭА ⚡"
+  }, [])
+
   const handleGroupSet = () => {
     setGroup(groupValue)
     localStorage.setItem("schedule-group", groupValue)
