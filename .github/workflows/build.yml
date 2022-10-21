@@ -8,6 +8,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ghcr.io/saizaax/yasa-frontend
+  GH_PAT: ${{ secrets.GH_PAT }}
 
 jobs:
   build-and-push:
