@@ -58,7 +58,7 @@ export const getWeekPart = () => {
 }
 
 export const getWeeksNumber = () => {
-  return SEMESTER_END.week() - SEMESTER_START.week() + 2
+  return 17
 }
 
 export const getCurrentWeek = () => {
